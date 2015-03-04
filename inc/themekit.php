@@ -3,13 +3,13 @@
 /**
  * Load Fonts
  */
-function function_names_load_fonts() {
+function festival_of_trees_load_fonts() {
 
 	//wp_register_style( 'et-googleFonts', 'http://fonts.googleapis.com/css?family=Cabin:400,500,600,700' );
 	//wp_enqueue_style( 'et-googleFonts' );
 
-} // function_names_load_fonts()
-add_action( 'wp_print_styles', 'function_names_load_fonts' );
+} // festival_of_trees_load_fonts()
+add_action( 'wp_print_styles', 'festival_of_trees_load_fonts' );
 
 
 
@@ -33,19 +33,19 @@ function pretty( $input ) {
  *
  * @return 	string 							modified menu
  */
-function function_names_menu_caret( $item_output, $item, $depth, $args ) {
+function festival_of_trees_menu_caret( $item_output, $item, $depth, $args ) {
 
 	if ( ! in_array( 'menu-item-has-children', $item->classes ) ) { return $item_output; }
 
 	$output = '<a href="' . $item->url . '">';
 	$output .= $item->title;
-	$output .= '<span class="children">' . function_names_get_svg( 'caret-down' ) . '</span>';
+	$output .= '<span class="children">' . festival_of_trees_get_svg( 'caret-down' ) . '</span>';
 	$output .= '</a>';
 
 	return $output;
 
-} // function_names_menu_caret()
-add_filter( 'walker_nav_menu_start_el', 'function_names_menu_caret', 10, 4 );
+} // festival_of_trees_menu_caret()
+add_filter( 'walker_nav_menu_start_el', 'festival_of_trees_menu_caret', 10, 4 );
 
 
 
@@ -61,13 +61,13 @@ add_filter( 'walker_nav_menu_start_el', 'function_names_menu_caret', 10, 4 );
  *
  * @return 	string 							modified menu
  */
-function function_names_social_menu_svgs( $item_output, $item, $depth, $args ) {
+function festival_of_trees_social_menu_svgs( $item_output, $item, $depth, $args ) {
 
 	if ( 'social' !== $args->theme_location ) { return $item_output; }
 
 	$host 	= parse_url( $item->url, PHP_URL_HOST );
 	$output = '<a href="' . $item->url . '" class="icon-menu">';
-	$class 	= function_names_get_svg_by_class( $item->classes );
+	$class 	= festival_of_trees_get_svg_by_class( $item->classes );
 
 	if ( ! empty( $class ) ) {
 
@@ -75,7 +75,7 @@ function function_names_social_menu_svgs( $item_output, $item, $depth, $args ) {
 
 	} else {
 
-		$output .= function_names_get_svg_by_url( $item->url );
+		$output .= festival_of_trees_get_svg_by_url( $item->url );
 
 	} // class check
 
@@ -83,8 +83,8 @@ function function_names_social_menu_svgs( $item_output, $item, $depth, $args ) {
 
 	return $output;
 
-} // function_names_social_menu_svgs()
-add_filter( 'walker_nav_menu_start_el', 'function_names_social_menu_svgs', 10, 4 );
+} // festival_of_trees_social_menu_svgs()
+add_filter( 'walker_nav_menu_start_el', 'festival_of_trees_social_menu_svgs', 10, 4 );
 
 
 /**
@@ -93,13 +93,13 @@ add_filter( 'walker_nav_menu_start_el', 'function_names_social_menu_svgs', 10, 4
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
-function function_names_get_svg_by_class( $classes ) {
+function festival_of_trees_get_svg_by_class( $classes ) {
 
 	$output = '';
 
 	foreach ( $classes as $class ) {
 
-		$check = function_names_get_svg( $class );
+		$check = festival_of_trees_get_svg( $class );
 
 		if ( ! is_null( $check ) ) { $output .= $check; break; }
 
@@ -107,7 +107,7 @@ function function_names_get_svg_by_class( $classes ) {
 
 	return $output;
 
-} // function_names_get_svg_by_class()
+} // festival_of_trees_get_svg_by_class()
 
 /**
  * Gets the appropriate SVG based on a URL
@@ -115,25 +115,25 @@ function function_names_get_svg_by_class( $classes ) {
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
-/*function function_names_get_svg_by_pageID( $ID ) {
+/*function festival_of_trees_get_svg_by_pageID( $ID ) {
 
 	$output = '';
 	$page 	= get_post( $ID );
 
 	switch( $page->post_title ) {
 
-		case 'Calendar' 			: $output .= function_names_get_svg( 'calendar' ); break;
-		case 'Camping' 				: $output .= function_names_get_svg( 'camping' ); break;
-		case 'Events & Festivals' 	: $output .= function_names_get_svg( 'calendar' ); break;
-		case 'Hotels' 				: $output .= function_names_get_svg( 'hotel' ); break;
-		case 'Motels' 				: $output .= function_names_get_svg( 'hotel' ); break;
-		case 'Travel Guides' 		: $output .= function_names_get_svg( 'map-location' ); break;
+		case 'Calendar' 			: $output .= festival_of_trees_get_svg( 'calendar' ); break;
+		case 'Camping' 				: $output .= festival_of_trees_get_svg( 'camping' ); break;
+		case 'Events & Festivals' 	: $output .= festival_of_trees_get_svg( 'calendar' ); break;
+		case 'Hotels' 				: $output .= festival_of_trees_get_svg( 'hotel' ); break;
+		case 'Motels' 				: $output .= festival_of_trees_get_svg( 'hotel' ); break;
+		case 'Travel Guides' 		: $output .= festival_of_trees_get_svg( 'map-location' ); break;
 
 	} // switch
 
 	return $output;
 
-} // function_names_get_svg_by_pageID()*/
+} // festival_of_trees_get_svg_by_pageID()*/
 
 /**
  * Gets the appropriate SVG based on a URL
@@ -141,25 +141,25 @@ function function_names_get_svg_by_class( $classes ) {
  * @param  [type] $url [description]
  * @return [type]      [description]
  */
-function function_names_get_svg_by_url( $url ) {
+function festival_of_trees_get_svg_by_url( $url ) {
 
 	$output = '';
 	$host 	= parse_url( $url, PHP_URL_HOST );
 
 	switch( $host ) {
 
-		case 'facebook.com' 	: $output .= function_names_get_svg( 'facebook' ); break;
-		case 'instagram.com' 	: $output .= function_names_get_svg( 'instagram' ); break;
-		case 'linked.com' 		: $output .= function_names_get_svg( 'linkedin' ); break;
-		case 'pinterest.com' 	: $output .= function_names_get_svg( 'pinterest' ); break;
-		case 'twitter.com' 		: $output .= function_names_get_svg( 'twitter' ); break;
-		case 'youtube.com' 		: $output .= function_names_get_svg( 'youtube' ); break;
+		case 'facebook.com' 	: $output .= festival_of_trees_get_svg( 'facebook' ); break;
+		case 'instagram.com' 	: $output .= festival_of_trees_get_svg( 'instagram' ); break;
+		case 'linked.com' 		: $output .= festival_of_trees_get_svg( 'linkedin' ); break;
+		case 'pinterest.com' 	: $output .= festival_of_trees_get_svg( 'pinterest' ); break;
+		case 'twitter.com' 		: $output .= festival_of_trees_get_svg( 'twitter' ); break;
+		case 'youtube.com' 		: $output .= festival_of_trees_get_svg( 'youtube' ); break;
 
 	} // switch
 
 	return $output;
 
-} // function_names_get_svg_by_url()
+} // festival_of_trees_get_svg_by_url()
 
 /**
  * Returns the requested SVG
@@ -168,7 +168,7 @@ function function_names_get_svg_by_url( $url ) {
  *
  * @return 	mixed 					The SVG code
  */
-function function_names_get_svg( $svg ) {
+function festival_of_trees_get_svg( $svg ) {
 
 	$output = '';
 
@@ -206,7 +206,7 @@ function function_names_get_svg( $svg ) {
 
 	return $output;
 
-} // function_names_get_svg()
+} // festival_of_trees_get_svg()
 
 /**
  * Returns the URL of the featured image
@@ -216,7 +216,7 @@ function function_names_get_svg( $svg ) {
  *
  * @return 	string | bool 				The URL of the featured image, otherwise FALSE
  */
-function function_names_get_thumbnail_url( $postID, $size = 'thumbnail' ) {
+function festival_of_trees_get_thumbnail_url( $postID, $size = 'thumbnail' ) {
 
 	if ( empty( $postID ) ) { return FALSE; }
 
@@ -230,7 +230,7 @@ function function_names_get_thumbnail_url( $postID, $size = 'thumbnail' ) {
 
 	return $thumb_array[0];
 
-} // function_names_get_thumbnail_url()
+} // festival_of_trees_get_thumbnail_url()
 
 /**
  * Adds the individual sections, settings, and controls to the theme customizer
@@ -243,7 +243,7 @@ function function_names_get_thumbnail_url( $postID, $size = 'thumbnail' ) {
  * 	nav - Navigation
  * 	static_front_page - Static Front Page
  */
-function function_names_ustomizer( $wp_customize ) {
+function festival_of_trees_ustomizer( $wp_customize ) {
 
 /*
 	// New Section
@@ -292,8 +292,8 @@ function function_names_ustomizer( $wp_customize ) {
 	);
 */
 
-} // function_names_customizer()
+} // festival_of_trees_customizer()
 
-add_action( 'customize_register', 'function_names_customizer' );
+add_action( 'customize_register', 'festival_of_trees_customizer' );
 
 

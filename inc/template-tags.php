@@ -68,7 +68,7 @@ endif;
 
 
 
-if ( ! function_exists( 'function_names_posted_on' ) ) :
+if ( ! function_exists( 'festival_of_trees_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  *
@@ -84,7 +84,7 @@ if ( ! function_exists( 'function_names_posted_on' ) ) :
  * @uses 	get_the_author_meta()
  * @uses 	get_the_author()
  */
-	function function_names_posted_on() {
+	function festival_of_trees_posted_on() {
 
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -110,18 +110,18 @@ if ( ! function_exists( 'function_names_posted_on' ) ) :
 
 		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
 
-	} // function_names_posted_on()
+	} // festival_of_trees_posted_on()
 endif;
 
 
 
-if ( ! function_exists( 'function_names_entry_footer' ) ) :
+if ( ! function_exists( 'festival_of_trees_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  *
  * @uses 	get_post_type()
  * @uses 	get_the_category_list()
- * @uses 	function_names_categorized_blog()
+ * @uses 	festival_of_trees_categorized_blog()
  * @uses 	get_the_tag_list()
  * @uses 	is_single()
  * @uses 	post_password_required()
@@ -130,14 +130,14 @@ if ( ! function_exists( 'function_names_entry_footer' ) ) :
  * @uses 	comments_popup_link()
  * @uses 	edit_post_link()
  */
-	function function_names_entry_footer() {
+	function festival_of_trees_entry_footer() {
 
 		// Hide category and tag text for pages.
 		if ( 'post' == get_post_type() ) {
 
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( __( ', ', 'festival-of-trees' ) );
-			if ( $categories_list && function_names_categorized_blog() ) {
+			if ( $categories_list && festival_of_trees_categorized_blog() ) {
 
 				printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'festival-of-trees' ) . '</span>', $categories_list );
 
@@ -163,7 +163,7 @@ if ( ! function_exists( 'function_names_entry_footer' ) ) :
 
 		edit_post_link( __( 'Edit', 'festival-of-trees' ), '<span class="edit-link">', '</span>' );
 
-	} // function_names_entry_footer()
+	} // festival_of_trees_entry_footer()
 endif;
 
 
@@ -321,9 +321,9 @@ endif;
  *
  * @return bool
  */
-function function_names_categorized_blog() {
+function festival_of_trees_categorized_blog() {
 
-	if ( false === ( $all_the_cool_cats = get_transient( 'function_names_categories' ) ) ) {
+	if ( false === ( $all_the_cool_cats = get_transient( 'festival_of_trees_categories' ) ) ) {
 
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -337,36 +337,36 @@ function function_names_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'function_names_categories', $all_the_cool_cats );
+		set_transient( 'festival_of_trees_categories', $all_the_cool_cats );
 
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
 
-		// This blog has more than 1 category so function_names_categorized_blog should return true.
+		// This blog has more than 1 category so festival_of_trees_categorized_blog should return true.
 		return true;
 
 	} else {
 
-		// This blog has only 1 category so function_names_categorized_blog should return false.
+		// This blog has only 1 category so festival_of_trees_categorized_blog should return false.
 		return false;
 
 	}
 
-} // function_names_categorized_blog()
+} // festival_of_trees_categorized_blog()
 
 /**
- * Flush out the transients used in function_names_categorized_blog.
+ * Flush out the transients used in festival_of_trees_categorized_blog.
  *
  * @uses 	delete_transient()
  */
-function function_names_category_transient_flusher() {
+function festival_of_trees_category_transient_flusher() {
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) { return; }
 
 	// Like, beat it. Dig?
-	delete_transient( 'function_names_categories' );
+	delete_transient( 'festival_of_trees_categories' );
 
-} // function_names_category_transient_flusher()
-add_action( 'edit_category', 'function_names_category_transient_flusher' );
-add_action( 'save_post',     'function_names_category_transient_flusher' );
+} // festival_of_trees_category_transient_flusher()
+add_action( 'edit_category', 'festival_of_trees_category_transient_flusher' );
+add_action( 'save_post',     'festival_of_trees_category_transient_flusher' );

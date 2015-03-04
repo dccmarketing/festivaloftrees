@@ -8,7 +8,7 @@
  * @since 		1.0.0
  * @package  	DocBlock
  */
-class function_names_Customize {
+class festival_of_trees_Customize {
 
    /**
 	* This hooks into 'customize_register' (available as of WP 3.4) and allows
@@ -216,7 +216,7 @@ class function_names_Customize {
 	 */
 	public static function live_preview() {
 
-		wp_enqueue_script( 'function_names_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'jquery', 'customize-preview' ), '20130508', true );
+		wp_enqueue_script( 'festival_of_trees_customizer', get_template_directory_uri() . '/js/customizer.min.js', array( 'jquery', 'customize-preview' ), '20130508', true );
 
 	} // live_preview()
 
@@ -263,10 +263,10 @@ class function_names_Customize {
 } // class
 
 // Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'function_names_Customize' , 'register' ) );
+add_action( 'customize_register' , array( 'festival_of_trees_Customize' , 'register' ) );
 
 // Output custom CSS to live site
-add_action( 'wp_head' , array( 'function_names_Customize' , 'header_output' ) );
+add_action( 'wp_head' , array( 'festival_of_trees_Customize' , 'header_output' ) );
 
 // Enqueue live preview javascript in Theme Customizer admin screen
-add_action( 'customize_preview_init' , array( 'function_names_Customize' , 'live_preview' ) );
+add_action( 'customize_preview_init' , array( 'festival_of_trees_Customize' , 'live_preview' ) );

@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'function_names_setup' ) ) :
+if ( ! function_exists( 'festival_of_trees_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,7 +20,7 @@ if ( ! function_exists( 'function_names_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function function_names_setup() {
+function festival_of_trees_setup() {
 
 	/*
 	 * Make theme available for translation.
@@ -71,21 +71,21 @@ function function_names_setup() {
 	) );*/
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'function_names_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'festival_of_trees_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
-} // function_names_setup()
-endif; // function_names_setup
-add_action( 'after_setup_theme', 'function_names_setup' );
+} // festival_of_trees_setup()
+endif; // festival_of_trees_setup
+add_action( 'after_setup_theme', 'festival_of_trees_setup' );
 
 /**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function function_names_widgets_init() {
+function festival_of_trees_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'festival-of-trees' ),
@@ -97,13 +97,13 @@ function function_names_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 
-} // function_names_widgets_init()
-add_action( 'widgets_init', 'function_names_widgets_init' );
+} // festival_of_trees_widgets_init()
+add_action( 'widgets_init', 'festival_of_trees_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function function_names_scripts() {
+function festival_of_trees_scripts() {
 
 	wp_enqueue_style( 'scriptname-style', get_stylesheet_uri() );
 
@@ -115,8 +115,8 @@ function function_names_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-} // function_names_scripts()
-add_action( 'wp_enqueue_scripts', 'function_names_scripts' );
+} // festival_of_trees_scripts()
+add_action( 'wp_enqueue_scripts', 'festival_of_trees_scripts' );
 
 /**
  * Implement the Custom Header feature.
