@@ -24,12 +24,12 @@
 
 			/* translators: %s: Name of current post */
 			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'text-domain' ),
+				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'festival-of-trees' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'text-domain' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'festival-of-trees' ),
 				'after'  => '</div>',
 			) );
 

@@ -21,7 +21,7 @@
 			?></div><!-- .footer_left -->
 			<div class="site-info"><?php
 
-				printf( __( '<div class="copyright">All content &copy %1$s <a href="%2$s" title="Login">%3$s</a></a></div>', 'text-domain' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) );
+				printf( __( '<div class="copyright">All content &copy %1$s <a href="%2$s" title="Login">%3$s</a></a></div>', 'festival-of-trees' ), date( 'Y' ), get_admin_url(), get_bloginfo( 'name' ) );
 
 			?></div><!-- .site-info -->
 			<div class="footer-right"><?php

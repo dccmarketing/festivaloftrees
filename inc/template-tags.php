@@ -22,15 +22,15 @@ if ( ! function_exists( 'the_posts_navigation' ) ) :
 		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) { return; }
 
 		?><nav class="navigation posts-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'text-domain' ); ?></h2>
+			<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'festival-of-trees' ); ?></h2>
 			<div class="nav-links">
 
 				<?php if ( get_next_posts_link() ) : ?>
-				<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'text-domain' ) ); ?></div>
+				<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'festival-of-trees' ) ); ?></div>
 				<?php endif; ?>
 
 				<?php if ( get_previous_posts_link() ) : ?>
-				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'text-domain' ) ); ?></div>
+				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'festival-of-trees' ) ); ?></div>
 				<?php endif; ?>
 
 			</div><!-- .nav-links -->
@@ -54,7 +54,7 @@ if ( ! function_exists( 'the_post_navigation' ) ) :
 		if ( ! $next && ! $previous ) {	return; }
 
 		?><nav class="navigation post-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'text-domain' ); ?></h2>
+			<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'festival-of-trees' ); ?></h2>
 			<div class="nav-links"><?php
 
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -99,12 +99,12 @@ if ( ! function_exists( 'function_names_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			_x( 'Posted on %s', 'post date', 'text-domain' ),
+			_x( 'Posted on %s', 'post date', 'festival-of-trees' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
-			_x( 'by %s', 'post author', 'text-domain' ),
+			_x( 'by %s', 'post author', 'festival-of-trees' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -136,18 +136,18 @@ if ( ! function_exists( 'function_names_entry_footer' ) ) :
 		if ( 'post' == get_post_type() ) {
 
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( __( ', ', 'text-domain' ) );
+			$categories_list = get_the_category_list( __( ', ', 'festival-of-trees' ) );
 			if ( $categories_list && function_names_categorized_blog() ) {
 
-				printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'text-domain' ) . '</span>', $categories_list );
+				printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'festival-of-trees' ) . '</span>', $categories_list );
 
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', __( ', ', 'text-domain' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'festival-of-trees' ) );
 			if ( $tags_list ) {
 
-				printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'text-domain' ) . '</span>', $tags_list );
+				printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'festival-of-trees' ) . '</span>', $tags_list );
 
 			}
 
@@ -156,12 +156,12 @@ if ( ! function_exists( 'function_names_entry_footer' ) ) :
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 
 			echo '<span class="comments-link">';
-			comments_popup_link( __( 'Leave a comment', 'text-domain' ), __( '1 Comment', 'text-domain' ), __( '% Comments', 'text-domain' ) );
+			comments_popup_link( __( 'Leave a comment', 'festival-of-trees' ), __( '1 Comment', 'festival-of-trees' ), __( '% Comments', 'festival-of-trees' ) );
 			echo '</span>';
 
 		}
 
-		edit_post_link( __( 'Edit', 'text-domain' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', 'festival-of-trees' ), '<span class="edit-link">', '</span>' );
 
 	} // function_names_entry_footer()
 endif;

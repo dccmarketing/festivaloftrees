@@ -27,9 +27,9 @@ class function_names_Customize {
 
 /*
 		// New Section
-		$sectargs['title'] 			= __( 'New Section', 'text-domain' );
+		$sectargs['title'] 			= __( 'New Section', 'festival-of-trees' );
 		$sectargs['capability'] 	= 'edit_theme_options';
-		$sectargs['description'] 	= __( 'New Customizer Section', 'text-domain' );
+		$sectargs['description'] 	= __( 'New Customizer Section', 'festival-of-trees' );
 		$wp_customize->add_section( 'new_section', $sectargs );
 
 
@@ -47,7 +47,7 @@ class function_names_Customize {
 		$settingargs['transport'] 			= 'postMessage';
 		$wp_customize->add_setting( 'text_field', $settingargs );
 
-		$controlargs['label'] 				= __( 'Text Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Text Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'text_field';
 		$wp_customize->add_control( 'text_field', $controlargs );
@@ -59,7 +59,7 @@ class function_names_Customize {
 		$settingargs['transport'] 			= 'postMessage';
 		$wp_customize->add_setting( 'checkbox_field', $settingargs );
 
-		$controlargs['label'] 				= __( 'Checkbox Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Checkbox Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'checkbox_field';
 		$wp_customize->add_control( 'checkbox_field', $controlargs );
@@ -74,7 +74,7 @@ class function_names_Customize {
 		$controlargs['choices']['choice1'] 	= 'Choice 1';
 		$controlargs['choices']['choice2'] 	= 'Choice 2';
 		$controlargs['choices']['choice3'] 	= 'Choice 3';
-		$controlargs['label'] 				= __( 'Radio Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Radio Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'radio_field';
 		$wp_customize->add_control( 'radio_field', $controlargs );
@@ -89,7 +89,7 @@ class function_names_Customize {
 		$controlargs['choices']['choice1'] 	= 'Choice 1';
 		$controlargs['choices']['choice2'] 	= 'Choice 2';
 		$controlargs['choices']['choice3'] 	= 'Choice 3';
-		$controlargs['label'] 				= __( 'Select Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Select Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'select_field';
 		$controlargs['type'] 				= 'dropdown-pages';
@@ -119,7 +119,7 @@ class function_names_Customize {
 
 		$wp_customize->add_setting( 'textarea' );
 
-		$controlargs['label'] 				= __( 'Textarea', 'text-domain' );
+		$controlargs['label'] 				= __( 'Textarea', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'textarea';
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'textarea', $controlargs ) );
@@ -130,7 +130,7 @@ class function_names_Customize {
 		$settingargs['transport'] 			= 'postMessage';
 		$wp_customize->add_setting( 'select_page_field', $settingargs );
 
-		$controlargs['label'] 				= __( 'Select Page', 'text-domain' );
+		$controlargs['label'] 				= __( 'Select Page', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'select_page_field';
 		$wp_customize->add_control( 'select_page_field', $controlargs );
@@ -142,7 +142,7 @@ class function_names_Customize {
 		$settingargs['transport'] 			= 'postMessage';
 		$wp_customize->add_setting( 'color_field', $settingargs );
 
-		$controlargs['label'] 				= __( 'Color Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Color Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'color_field';
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_field', $controlargs ) );
@@ -152,7 +152,7 @@ class function_names_Customize {
 		// File Upload Field
 		$wp_customize->add_setting( 'file-upload' );
 
-		$controlargs['label'] 				= __( 'File Upload', 'text-domain' );
+		$controlargs['label'] 				= __( 'File Upload', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'file-upload';
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'file-upload', $controlargs ) );
@@ -164,7 +164,7 @@ class function_names_Customize {
 		$settingargs['transport'] 			= 'postMessage';
 		$wp_customize->add_setting( 'image_field', $settingargs );
 
-		$controlargs['label'] 				= __( 'Image Field', 'text-domain' );
+		$controlargs['label'] 				= __( 'Image Field', 'festival-of-trees' );
 		$controlargs['section'] 			= 'new_section';
 		$controlargs['settings'] 			= 'image_field';
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_field', $controlargs ) );

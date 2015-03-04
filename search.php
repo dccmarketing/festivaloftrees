@@ -15,7 +15,7 @@ get_header(); ?>
 			?><header class="page-header">
 				<h1 class="page-title"><?php
 
-					printf( __( 'Search Results for: %s', 'text-domain' ), '<span>' . get_search_query() . '</span>' );
+					printf( __( 'Search Results for: %s', 'festival-of-trees' ), '<span>' . get_search_query() . '</span>' );
 
 				?></h1>
 			</header><!-- .page-header --><?php

@@ -21,7 +21,7 @@
 		the_content();
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'text-domain' ),
+			'before' => '<div class="page-links">' . __( 'Pages:', 'festival-of-trees' ),
 			'after'  => '</div>',
 		) );
 

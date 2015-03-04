@@ -26,9 +26,9 @@ function function_names_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on _s, use a find and replace
-	 * to change 'text-domain' to the name of your theme in all the template files
+	 * to change 'festival-of-trees' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'text-domain', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'festival-of-trees', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -50,8 +50,8 @@ function function_names_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'text-domain' ),
-		'social' => __( 'Social Links', 'text-domain' )
+		'primary' => __( 'Primary Menu', 'festival-of-trees' ),
+		'social' => __( 'Social Links', 'festival-of-trees' )
 	) );
 
 	/*
@@ -88,7 +88,7 @@ add_action( 'after_setup_theme', 'function_names_setup' );
 function function_names_widgets_init() {
 
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'text-domain' ),
+		'name'          => __( 'Sidebar', 'festival-of-trees' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',

@@ -250,9 +250,9 @@ function function_names_ustomizer( $wp_customize ) {
 	$wp_customize->add_section(
 		'new_section',
 		array(
-			'title' 		=> __( 'New Section', 'text-domain' ),
+			'title' 		=> __( 'New Section', 'festival-of-trees' ),
 			'capability' 	=> 'edit_theme_options',
-			'description' 	=> __( 'New Customizer Section', 'text-domain' )
+			'description' 	=> __( 'New Customizer Section', 'festival-of-trees' )
 		)
 	);
 
@@ -261,7 +261,7 @@ function function_names_ustomizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'name1',
 		array(
-			'label'    => __( 'Text Field', 'text-domain' ),
+			'label'    => __( 'Text Field', 'festival-of-trees' ),
 			'section'  => 'new_section',
 			'settings' => 'text_field',
 		)
@@ -272,7 +272,7 @@ function function_names_ustomizer( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control( $wp_customize, 'color_field',
 			array(
-				'label' 	=> __( 'Color Field', 'text-domain' ),
+				'label' 	=> __( 'Color Field', 'festival-of-trees' ),
 				'section' 	=> 'new_section',
 				'settings' 	=> 'color_field',
 			)
@@ -284,7 +284,7 @@ function function_names_ustomizer( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control( $wp_customize, 'image_field',
 			array(
-				'label'    => __( 'Image Field', 'text-domain' ),
+				'label'    => __( 'Image Field', 'festival-of-trees' ),
 				'section'  => 'new_section',
 				'settings' => 'image_field'
 			)

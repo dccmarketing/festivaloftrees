@@ -20,7 +20,7 @@ wp_head();
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'text-domain' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'festival-of-trees' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-wrap wrap">
@@ -30,7 +30,7 @@ wp_head();
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Menu', 'text-domain' ); ?></button><?php
+				<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Menu', 'festival-of-trees' ); ?></button><?php
 
 					wp_nav_menu( array( 'theme_location' => 'primary' ) );
 
