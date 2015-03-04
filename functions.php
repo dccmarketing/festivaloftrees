@@ -1,6 +1,6 @@
 <?php
 /**
- * Replace With Theme Name functions and definitions
+ * Festival of Trees functions and definitions
  *
  * @package Festival of Trees
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Replace With Theme Name Theme Customizer
+ * Festival of Trees Theme Customizer
  *
  * Contains methods for customizing the theme customization screen.
  *
