@@ -23,7 +23,7 @@ class festival_of_trees_Customize {
 	* @link 		http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
 	* @since 		1.0.0
 	*/
-	public static function register() $wp_customize ) {
+	public static function register( $wp_customize ) {
 
 /*
 		// New Section
@@ -195,9 +195,9 @@ class festival_of_trees_Customize {
 		?><!--Customizer CSS-->
 		<style type="text/css"><?php
 
-			$this->generate_css( '#site-title a', 'color', 'header_textcolor', '#' );
-			$this->generate_css( 'body', 'background-color', 'background_color', '#' );
-			$this->generate_css( 'a', 'color', 'link_textcolor' );
+			festival_of_trees_Customize::generate_css( '#site-title a', 'color', 'header_textcolor', '#' );
+			festival_of_trees_Customize::generate_css( 'body', 'background-color', 'background_color', '#' );
+			festival_of_trees_Customize::generate_css( 'a', 'color', 'link_textcolor' );
 
 		?></style><!--/Customizer CSS--><?php
 
