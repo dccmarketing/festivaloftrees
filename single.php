@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package DocBlock
+ * @package Festival of Trees
  */
 
 get_header();

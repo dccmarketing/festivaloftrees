@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area.
  *
- * @package DocBlock
+ * @package Festival of Trees
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package DocBlock
+ * @package Festival of Trees
  */
 
 ?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

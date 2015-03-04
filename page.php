@@ -7,7 +7,7 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package DocBlock
+ * @package Festival of Trees
  */
 
 get_header(); ?>
@@ -23,8 +23,8 @@ get_header(); ?>
 				if ( comments_open() || get_comments_number() ) {
 
 					comments_template();
-					
-				} 
+
+				}
 
 			endwhile; // end of the loop.
 

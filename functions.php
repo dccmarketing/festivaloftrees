@@ -2,7 +2,7 @@
 /**
  * Replace With Theme Name functions and definitions
  *
- * @package DocBlock
+ * @package Festival of Trees
  */
 
 /**
