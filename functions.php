@@ -51,7 +51,8 @@ function festival_of_trees_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'festival-of-trees' ),
-		'social' => __( 'Social Links', 'festival-of-trees' )
+		'social' => __( 'Social Links', 'festival-of-trees' ),
+		'header' => __( 'Header Menu', 'festival-of-trees' )
 	) );
 
 	/*

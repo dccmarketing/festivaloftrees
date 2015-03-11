@@ -1,5 +1,22 @@
 .nav-social {
 
+	@media only screen and (max-width: $bp__menu-button) {
+		margin-bottom: $size__default-bot-marg;
+	}
+
+	header & {
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			width : 110px;
+			display: inline-block;
+			vertical-align: middle
+		}
+
+		@media only screen and (min-width: $bp__laptop) {
+			float : left;
+		}
+	}
+
 	.screen-reader-text,
 	a {
 		@extend %hidetext;
@@ -7,17 +24,40 @@
 
 	.menu-items {
 		@extend %listreset;
+
+		header & {
+			text-align: center;
+		}
 	}
 
 	.menu-item {
-		display 	: inline-block;
-		position 	: relative;
-		margin 		: 0 0.5em;
-		line-height : 1.5em;
+		position 		: relative;
+		line-height 	: 1.5em;
+		display 		: inline-block;
+		width 			: 24%;
+		vertical-align 	: top;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			width 		: 47.5%;
+		}
 
 		svg {
-			width 	: $font__size-social;
-			height 	: $font__size-social;
+			@include svgsize( 48px );
+			fill 		: $light;
+			transition 	: all 0.3s ease;
+
+			header & {
+
+				@media only screen and (min-width: $bp__menu-button+1) {
+					@include svgsize( 32px );
+				}
+			}
+		}
+
+		&:hover {
+			svg {
+				fill: $yellow;
+			}
 		}
 	}
 }

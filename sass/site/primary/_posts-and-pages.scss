@@ -25,8 +25,18 @@
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+	clear 	: both;
+	margin 	: 0 0 1.5em;
+}
+
+.site {
+	background-color 	: $light;
+	background-position : top center;
+	background-repeat 	: no-repeat;
+
+	@media only screen and (min-width: $bp__tablet) {
+		background-image 	: url(images/header_bg.png);
+	}
 }
 
 .site-content {

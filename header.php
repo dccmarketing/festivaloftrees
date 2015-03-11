@@ -25,17 +25,20 @@ wp_head();
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-wrap wrap">
 			<div class="site-branding">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</div><!-- .site-branding -->
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo festival_of_trees_get_svg( 'logo2' ); ?></a>
+			</div><!-- .site-branding --><?php
 
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Menu', 'festival-of-trees' ); ?></button><?php
+			get_template_part( 'menus/menu', 'social' );
+			get_template_part( 'menus/menu', 'header' );
 
-					wp_nav_menu( array( 'theme_location' => 'primary' ) );
+		?></div><!-- .header_wrap -->
 
-			?></nav><!-- #site-navigation -->
-		</div><!-- .header_wrap -->
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Menu', 'festival-of-trees' ); ?></button><?php
+
+				wp_nav_menu( array( 'theme_location' => 'primary' ) );
+
+		?></nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

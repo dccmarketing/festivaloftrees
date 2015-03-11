@@ -3,30 +3,32 @@
 	display			: block;
 	float			: left;
 	width			: 100%;
-
-	.nav-menu {
-		max-height 	: 0;
-
-		@media only screen and (min-width: $bp__menu-button+1) {
-			max-height 	: 9999em;
-		}
-	}
+	font-family 	: $font__bebas;
+	background-color: $transwhite;
 
 	ul {
 		@extend %listreset;
+		text-align 	: left;
+		display 	: none;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			display 	: block;
+			text-align	: center;
+		}
 
 		ul {
 			display		: inherit;
-			background	: $color__bg-menu-item-mobile;
+			font-family : $font__main;
 
 			@media only screen and (min-width: $bp__menu-button+1) {
 				box-shadow	: 0 3px 3px rgba(0, 0, 0, 0.2);
 				position	: absolute;
 				z-index		: 99999;
-				transition 	: visibility 0s ease 0.5s,opacity 0.5s ease;
+				transition 	: visibility 0s ease 0.3s,opacity 0.3s ease;
 				visibility 	: hidden;
 				opacity 	: 0;
 				left 		: 0;
+				background	: $color__bg-menu-item-mobile;
 			} // breakpoint
 
 			ul {
@@ -43,64 +45,98 @@
 				}
 			}
 
-			a {
-				@media only screen and (max-width: $bp__menu-button) {
-					padding: 0.5em 2em;
-				}
+			li {
+				font-size: 0.8em;
 
 				@media only screen and (min-width: $bp__menu-button+1) {
-					width: 200px;
-					color: $color__text-submenu;
+					border-bottom 	: 1px solid $transwhite;
+					width 			: 100%;
 				}
-			}
 
-			:hover > a {
-			}
+				&:last-child {
+					border-bottom: none;
 
-			a:hover {
-			}
-
-			@media only screen and (max-width: $bp__menu-button) {
-				li {
-
-					&:last-child {
+					@media only screen and (max-width: $bp__menu-button) {
 						padding-bottom: 0;
 					}
 				}
+
+				a:after {
+					content: "";
+				}
 			}
+
+			a {
+				padding: 0.5em 2em;
+
+				@media only screen and (min-width: $bp__menu-button+1) {
+					white-space : nowrap;
+					color 		: $color__text-submenu;
+					padding 	: 0.5em;
+					min-width 	: 200px;
+				}
+			}
+
 		} // .submenu ul
+
 	} // first-level ul
 
 	li {
 
 		@media only screen and (min-width: $bp__menu-button+1) {
-			float	: left;
-			position: relative;
+			display 	: inline-block;
+			position 	: relative;
+			font-size 	: 1.5em;
 		}
 
-		&:hover > a {
-			background: $color__bg-menu-item-mobile;
-			color: $color__text-menu-mobile-hover;
+		&:hover {
 
-			@media only screen and (min-width: $bp__menu-button+1) {
-				color: $color__text-menu-hover;
+			> ul {
+				@media only screen and (min-width: $bp__menu-button+1) {
+					display 	: block;
+					visibility 	: visible;
+					opacity 	: 1;
+					background 	: $color__bg-menu-item-mobile;
+				}
 			}
+
+			> a {
+				color 		: $color__text-menu-mobile-hover;
+
+				@media only screen and (min-width: $bp__menu-button+1) {
+					color 		: $color__text-menu-hover;
+				}
+			}
+
+			.caret-down {
+				fill: $hotpink;
+			}
+
 		}
 
-		@media only screen and (min-width: $bp__menu-button+1) {
-			&:hover > ul {
-				display: block;
+		&:last-child {
+			a:after {
+				content: "";
 			}
 		}
 	}
+
 	a {
-		padding 		: 0.5em 1em;
+		padding 		: 0.5em;
 		display			: block;
 		text-decoration	: none;
 		color 			: $color__text-menu-mobile;
 
 		@media only screen and (min-width: $bp__menu-button+1) {
-			color: $color__text-menu;
+			color 			: $color__text-menu;
+			padding-left 	: 0;
+		}
+
+		&:after {
+			@media only screen and (min-width: $bp__menu-button+1) {
+				content 	: "|";
+				margin-left : 0.5em;
+			}
 		}
 	}
 
@@ -131,16 +167,21 @@
 } // .main-navigation
 
 // Center Menu
-.menu-primary-menu-container {
-	max-width	: $size__max-width;
+.menu-main-menu-container {
 	margin		: 0 auto;
-	text-align	: center;
 }
 
 
 /* Small menu */
 .menu-toggle {
 	@extend %menutoggle;
+	background		: $color__bg-menu-button-mobile;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background		: $color__bg-menu-button-mobile;
+	}
 
 	@media only screen and (min-width: $bp__menu-button+1) {
 		display 	: none;
@@ -170,9 +211,13 @@
 	}
 }
 
-.children-caret {
-	display 	: inline-block;
-	height 		: 0.75em;
-	margin-left : 0.25em;
-	width 		: 0.75em;
+.menu-item-has-children {
+
+	.caret-down {
+		display 	: inline-block;
+		height 		: 0.75em;
+		margin-left : 0.25em;
+		width 		: 0.75em;
+		fill 		: $purple;
+	}
 }

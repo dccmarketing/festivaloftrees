@@ -1,11 +1,13 @@
 $light		: #fff;
+$transwhite : rgba(255, 255, 255, 0.75);
 $med		: #ccc;
 $dark		: #020202;
 
-$purple 	: #643477;
+$purple 	: #633375;
+$transpurple: rgba(99, 51, 117, 0.5);
 $yellow 	: #f9cf3e;
-$hotpink 	: #bc1f50;
-$orange 	: #ea8039;
+$hotpink 	: #ba1e4f;
+$orange 	: #e87f3a;
 
 // Backgrounds
 $color__background-body		: $light;
@@ -51,20 +53,20 @@ $color__shadow-button-inner-2-focus : rgba(0, 0, 0, 0.15);
 
 // Menu colors
 $color__bg-menu-button			: $med;
-$color__bg-menu-button-mobile 	: $med;
+$color__bg-menu-button-mobile 	: $hotpink;
 $color__bg-menu-button-pseudo 	: $color__bg-menu-button-mobile;
 $color__bg-menu-item			: $med;
-$color__bg-menu-item-mobile		: $med;
+$color__bg-menu-item-mobile		: $transpurple;
 $color__bg-menu-current			: darken( $color__bg-menu-item, 25% );
 $color__bg-menu-current-hover	: darken( $color__bg-menu-item, 25% );
 
-$color__text-menu				: $dark;
-$color__text-menu-hover			: darken( $color__bg-menu-item, 25% );
-$color__text-menu-mobile		: $light;
-$color__text-menu-mobile-hover 	: $dark;
+$color__text-menu				: $purple;
+$color__text-menu-hover			: $hotpink;
+$color__text-menu-mobile		: $purple;
+$color__text-menu-mobile-hover 	: $hotpink;
 $color__text-menu-button		: $light;
 $color__text-menu-button-mobile : $light;
 $color__text-menu-button-pseudo : $color__text-menu-button-mobile;
 $color__text-menu-current		: $light;
-$color__text-menu-current-hover	: $med;
+$color__text-menu-current-hover	: $hotpink;
 $color__text-submenu			: $light;

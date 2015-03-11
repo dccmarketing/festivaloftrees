@@ -138,6 +138,17 @@
 	filter				: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
 }
 
+/**
+ * Sets height and width of an SVG to the same dimesion
+ *
+ * @param  {[type]} $size [description]
+ * @return {[type]}       [description]
+ */
+@mixin svgsize ( $size ) {
+	width 	: $size;
+	height 	: $size;
+}
+
 
 
 
@@ -158,6 +169,7 @@
 }
 
 %menutoggle {
+	display 		: block;
 	width			: 100%;
 	border			: none;
 	line-height		: 1.25em;
@@ -166,7 +178,6 @@
 	border-radius	: 0;
 	text-shadow		: none;
 	outline 		: 0;
-	background		: $color__bg-menu-button-mobile;
 	color 			: $color__text-menu-button-mobile;
 
 	&:hover,

@@ -1,0 +1,72 @@
+.nav-header {
+
+	@media only screen and (max-width: $bp__menu-button) {
+		width 	: 100%;
+	}
+
+	@media only screen and (min-width: $bp__laptop) {
+		float: right;
+	}
+
+	.menu-items {
+		@extend %listreset;
+	}
+
+	.menu-item {
+		display 		: inline-block;
+		vertical-align 	: top;
+		text-align 		: center;
+		font-family 	: $font__bebas;
+		font-size 		: 22px;
+
+		@media only screen and (max-width: $bp__laptop) {
+			width: 24%;
+		}
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			padding 	: 0 0.6em;
+		}
+
+		&:hover {
+
+			a {
+				color: $yellow;
+			}
+
+			svg {
+				fill: $light;
+			}
+		}
+	}
+
+	a {
+		color 			: $light;
+		text-decoration : none;
+		text-transform 	: uppercase;
+		transition 		: all 0.3s ease;
+		line-height 	: 1;
+	}
+
+	svg {
+		@include svgsize( 48px );
+		fill 		: $yellow;
+		transition 	: all 0.3s ease;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			@include svgsize( 60px );
+		}
+	}
+
+	.search-form,
+	.search-field {
+		visibility 	: hidden;
+		opacity 	: 0;
+		max-height 	: 0;
+		display 	: none;
+	}
+
+	.search-submit {
+		display: none;
+	}
+
+}
