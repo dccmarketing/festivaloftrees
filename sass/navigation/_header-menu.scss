@@ -10,6 +10,11 @@
 
 	.menu-items {
 		@extend %listreset;
+
+		@media only screen and (max-width: $bp__header-menu) {
+			max-width 	: 300px;
+			margin 		: 0 auto;
+		}
 	}
 
 	.menu-item {
@@ -18,19 +23,17 @@
 		text-align 		: center;
 		font-family 	: $font__bebas;
 		font-size 		: 22px;
+		margin 			: 0.33em;
 
-		@media only screen and (max-width: $bp__laptop) {
-			width: 24%;
-		}
-
-		@media only screen and (min-width: $bp__menu-button+1) {
-			padding 	: 0 0.6em;
+		@media only screen and (min-width: $bp__laptop) {
+			margin-top 		: 0;
+			margin-bottom 	: 0;
 		}
 
 		&:hover {
 
 			a {
-				color: $yellow;
+				color: $newyellow;
 			}
 
 			svg {
@@ -45,28 +48,52 @@
 		text-transform 	: uppercase;
 		transition 		: all 0.3s ease;
 		line-height 	: 1;
+		display 		: block;
 	}
 
 	svg {
 		@include svgsize( 48px );
-		fill 		: $yellow;
+		fill 		: $newyellow;
 		transition 	: all 0.3s ease;
-
-		@media only screen and (min-width: $bp__menu-button+1) {
-			@include svgsize( 60px );
-		}
 	}
 
-	.search-form,
-	.search-field {
-		visibility 	: hidden;
-		opacity 	: 0;
-		max-height 	: 0;
-		display 	: none;
+	.search {
+		position: relative;
+
+		#search-wrap {
+			visibility 		: hidden;
+			opacity 		: 0;
+			display 		: none;
+			transition 		: visibility 0s ease 0.3s,opacity 0.3s ease;
+
+			&.open {
+				visibility 		: visible;
+				opacity 		: 1;
+				display 		: block;
+				position 		: absolute;
+				top 			: -1rem;
+				left 			: 70px;
+				padding 		: 0.5em;
+				background-color: $transwhite;
+			}
+
+			.search-field {
+				height 			: 50px;
+				width 			: 300px;
+				border-radius 	: 0;
+			}
+		}
 	}
 
 	.search-submit {
 		display: none;
+	}
+
+	.tbf {
+
+		svg {
+			@include svgsize( 88px );
+		}
 	}
 
 }

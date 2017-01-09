@@ -1,0 +1,319 @@
+.home-promo {
+	padding-top 	: 0.5em;
+	text-align 		: center;
+	min-height 		: 340px;
+
+	@media only screen and (max-width: $bp__tablet - 1) {
+		background-color: $transteal2;
+	}
+
+	@media only screen and (min-width: $bp__tablet) {
+		padding-top 	: 0;
+	}
+}
+
+.promo-text {
+	color 			: $newyellow;
+	text-transform 	: uppercase;
+	margin-bottom 	: $size__default-bot-marg;
+
+	@media only screen and (min-width: $bp__tablet) {
+		width 			: 49%;
+		display 		: inline-block;
+		vertical-align 	: top;
+	}
+}
+
+.promo-line1 {
+	font-size 		: 26px;
+	line-height 	: 1;
+	margin-bottom 	: 0.5em;
+}
+
+.promo-line2 {
+	font-family : $font__bebas;
+	font-size 	: 3.5em;
+	line-height : 1;
+
+	@media only screen and (min-width: $bp__menu-full) {
+		font-size: 4.25em;
+	}
+}
+
+.promo-line3 {
+	font-family : $font__bebas;
+	font-size 	: 2.5em;
+	line-height : 1;
+
+	@media only screen and (min-width: $bp__menu-full) {
+		font-size: 3em;
+	}
+}
+
+.home-promo-button {
+	text-transform 	: lowercase;
+	color 			: $teal;
+	background-color: $newyellow;
+	border 			: 2px solid $light;
+	padding 		: 1em;
+	border-radius 	: 10px;
+	text-decoration : none;
+	display 		: inline-block;
+	margin-top 		: 1em;
+	max-width 		: 400px;
+}
+
+.promo-image {
+	max-width 	: 525px;
+	max-height 	: 360px;
+	width 		: 100%;
+
+	@media only screen and (min-width: $bp__tablet) {
+		width 			: 49%;
+		display 		: inline-block;
+		vertical-align 	: top;
+	}
+}
+
+
+
+.home-tab {
+	background-color: transparent;
+	z-index 		: 0;
+
+	@media only screen and (max-width: $bp__tablet - 1) {
+		border-top: 10px solid white;
+	}
+
+	@media only screen and (min-width: $bp__tablet) {
+		border-bottom: 10px solid white;
+	}
+}
+
+.tab-wrap {
+	position 	: relative;
+	max-width 	: $size__home-max !important;
+
+	@media only screen and (min-width: $bp__tablet) {
+		padding 	: 0 !important;
+
+		&:after {
+			position 		: absolute;
+			height 			: 10px;
+			width 			: 126px;
+			content 		: " ";
+			bottom 			: -10px;
+			right 			: 7px;
+			z-index 		: 2;
+		}
+
+		&:before {
+			position 			: absolute;
+			content 			: "";
+			bottom 				: -10px;
+			right 				: 0;
+			z-index 			: 1;
+			height 				: 70px;
+			width 				: 140px;
+			border 				: 7px solid $light;
+			border-radius 		: 20px 20px 0 0;
+		}
+	}
+}
+
+.home-headline {
+	@extend %headlines;
+	vertical-align 	: top;
+	margin 			: 0.1em;
+	display 		: inline-block;
+	width 			: 100%;
+
+	@media only screen and (min-width: $bp__tablet) {
+		padding-right 	: 2.25em;
+		text-align 		: right;
+		margin 			: 0;
+	}
+}
+
+
+$tabs: 'news' transparent $newyellow, 'events' $newyellow $teal, 'videos' $teal $green;
+
+@each $tab in $tabs {
+
+	.home-#{nth($tab, 1)} {
+		background-color: nth($tab, 3);
+		min-height 		: 200px;
+	}
+
+	.tab-#{nth($tab, 1)} {
+		@include tabs( nth($tab, 3), nth($tab, 3) );
+
+		@media only screen and (min-width: $bp__tablet) {
+			@include tabs( nth($tab, 2), nth($tab, 3) );
+		}
+
+		svg,
+		.dashicons {
+			display: none;
+
+			@media only screen and (min-width: $bp__tablet) {
+				display 	: block;
+				fill 		: $light;
+				color 		: $light;
+				@include svgsize( 96px );
+				font-size 	: 96px;
+				position 	: absolute;
+				z-index 	: 3;
+				top 		: 1rem;
+				right 		: 22px;
+			}
+		}
+	}
+}
+
+.tab-news {
+
+	@media only screen and (min-width: $bp__menu-full) {
+		margin-top: -50px;
+	}
+
+	.home-headline {
+		text-align: left;
+
+		@media only screen and (min-width: $bp__tablet) {
+			padding-right 	: 0;
+			padding-left 	: 2.25em;
+		}
+	}
+
+	svg {
+		top: 12px;
+		left: 22px;
+	}
+
+	.tab-wrap {
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			left: 7px;
+		}
+	}
+}
+
+.tab-videos {
+
+	&.bottom {
+
+		@media only screen and (min-width: $bp__tablet) {
+			background-color: $newyellow;
+		}
+	}
+}
+
+.home-news {
+	font-size: 20px;
+
+	.wrap {
+		@media only screen and (min-width: $bp__tablet) {
+			padding-left: 210px;
+		}
+	}
+
+	a {
+		color 			: $newpink;
+		text-decoration : none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	article {
+		margin-bottom 	: 0.5em;
+
+		@media only screen and (min-width: $bp__menu-button+1) {
+			display 		: inline-block;
+			vertical-align 	: top;
+			width 			: 49%;
+			margin-bottom 	: 0.5em;
+		}
+	}
+
+	.entry-title {
+		font-size 	: 20px;
+		margin 		: 0;
+	}
+
+	&.bottom {
+
+		.wrap {
+
+			@media only screen and (min-width: $bp__tablet) {
+				padding-left: 450px;
+			}
+		}
+
+		article {
+			width 		: 47%;
+			margin-right: 3%;
+		}
+	}
+}
+
+.home-events {
+	color 		: $light;
+
+	@media only screen and (min-width: $bp__tablet) {
+		text-align 	: right;
+	}
+
+	.wrap {
+
+		@media only screen and (min-width: $bp__tablet) {
+			padding-right: $size__tree-pad-right-tab;
+		}
+
+		@media only screen and (min-width: $bp__menu-full) {
+			padding-right: $size__tree-pad-rightfull;
+		}
+	}
+
+	&.bottom {
+		.wrap {
+			@extend %footertrees;
+		}
+	}
+
+	.entry-header-link {
+		text-decoration : none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.entry-title {
+		color 			: $newyellow;
+		font-size 		: 1.5em;
+		line-height 	: 1;
+		margin-bottom 	: 0;
+		display 		: inline-block;
+	}
+
+	.entry {
+		margin: 0;
+	}
+}
+
+.home-videos {
+
+	@media only screen and (min-width: $bp__tablet) {
+		text-align: right;
+	}
+
+	.wrap {
+		@extend %footertrees;
+	}
+}

@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-		<div class="wrap">
-			<div id="content" class="full-width"><?php
+	<div id="primary" class="content-area full-width">
+		<main id="main" class="site-main" role="main"><?php
 
 			while ( have_posts() ) : the_post();
 
@@ -25,6 +25,7 @@ get_header(); ?>
 
 			endwhile; // loop
 
-			?></div><!-- .full-width --><?php
+		?></main>
+	</div><!-- .full-width --><?php
 
 get_footer(); ?>

@@ -1,17 +1,15 @@
 .main-navigation {
 	clear			: both;
 	display			: block;
-	float			: left;
 	width			: 100%;
 	font-family 	: $font__bebas;
 	background-color: $transwhite;
 
 	ul {
 		@extend %listreset;
-		text-align 	: left;
 		display 	: none;
 
-		@media only screen and (min-width: $bp__menu-button+1) {
+		@media only screen and (min-width: $bp__menu-full) {
 			display 	: block;
 			text-align	: center;
 		}
@@ -20,7 +18,7 @@
 			display		: inherit;
 			font-family : $font__main;
 
-			@media only screen and (min-width: $bp__menu-button+1) {
+			@media only screen and (min-width: $bp__menu-full) {
 				box-shadow	: 0 3px 3px rgba(0, 0, 0, 0.2);
 				position	: absolute;
 				z-index		: 99999;
@@ -33,12 +31,13 @@
 
 			ul {
 
-				@media only screen and (min-width: $bp__menu-button+1) {
+				@media only screen and (min-width: $bp__menu-full) {
 					left: 100%;
 					top	: 0;
 				}
 				a {
-					@media only screen and (max-width: $bp__menu-button) {
+
+					@media only screen and (max-width: $bp__menu-full) {
 						padding: 0.5em 3em;
 						border-left: none;
 					}
@@ -46,11 +45,11 @@
 			}
 
 			li {
-				font-size: 0.8em;
 
-				@media only screen and (min-width: $bp__menu-button+1) {
+				@media only screen and (min-width: $bp__menu-full) {
 					border-bottom 	: 1px solid $transwhite;
 					width 			: 100%;
+					font-size 		: 0.8em;
 				}
 
 				&:last-child {
@@ -64,15 +63,25 @@
 				a:after {
 					content: "";
 				}
+
+				&:hover {
+
+					> a {
+						color: $newyellow;
+					}
+				}
 			}
 
 			a {
 				padding: 0.5em 2em;
 
 				@media only screen and (min-width: $bp__menu-button+1) {
+					padding 	: 0.5em;
+				}
+
+				@media only screen and (min-width: $bp__menu-full) {
 					white-space : nowrap;
 					color 		: $color__text-submenu;
-					padding 	: 0.5em;
 					min-width 	: 200px;
 				}
 			}
@@ -83,7 +92,7 @@
 
 	li {
 
-		@media only screen and (min-width: $bp__menu-button+1) {
+		@media only screen and (min-width: $bp__menu-full) {
 			display 	: inline-block;
 			position 	: relative;
 			font-size 	: 1.5em;
@@ -92,7 +101,8 @@
 		&:hover {
 
 			> ul {
-				@media only screen and (min-width: $bp__menu-button+1) {
+
+				@media only screen and (min-width: $bp__menu-full) {
 					display 	: block;
 					visibility 	: visible;
 					opacity 	: 1;
@@ -103,13 +113,13 @@
 			> a {
 				color 		: $color__text-menu-mobile-hover;
 
-				@media only screen and (min-width: $bp__menu-button+1) {
+				@media only screen and (min-width: $bp__menu-full) {
 					color 		: $color__text-menu-hover;
 				}
 			}
 
 			.caret-down {
-				fill: $hotpink;
+				fill: $newpink;
 			}
 
 		}
@@ -126,14 +136,16 @@
 		display			: block;
 		text-decoration	: none;
 		color 			: $color__text-menu-mobile;
+		text-align 		: left;
+		font-size 		: 1.25em;
 
-		@media only screen and (min-width: $bp__menu-button+1) {
-			color 			: $color__text-menu;
+		@media only screen and (min-width: $bp__menu-full) {
 			padding-left 	: 0;
+			font-size 		: 1em;
 		}
 
 		&:after {
-			@media only screen and (min-width: $bp__menu-button+1) {
+			@media only screen and (min-width: $bp__menu-full) {
 				content 	: "|";
 				margin-left : 0.5em;
 			}
@@ -145,12 +157,16 @@
 	.current-menu-parent,
 	.current_page_ancestor {
 
-		@media only screen and (min-width: $bp__menu-button+1) {
-			background: $color__bg-menu-current;
-		}
-
 		> a {
 			color: $color__text-menu-current;
+
+			&:after {
+				color: $color__text-menu-mobile;
+			}
+		}
+
+		.caret-down {
+			fill: $color__text-menu-current;
 		}
 
 		&:hover > a {
@@ -163,12 +179,35 @@
 		.nav-menu {
 			@extend %menutoggle;
 		}
+
+		.menu-main-menu-container {
+			@media only screen and (min-width: $bp__menu-button+1) and (max-width: $bp__menu-full) {
+				transform: translateX(0);
+			}
+
+		}
 	}
 } // .main-navigation
 
 // Center Menu
 .menu-main-menu-container {
 	margin		: 0 auto;
+
+	@media only screen and (min-width: $bp__menu-button+1) and (max-width: $bp__menu-full) {
+		position 		: fixed;
+		top 			: 0;
+		bottom 			: 0;
+		left 			: 0;
+		width 			: 275px;
+		height 			: 100%;
+		color 			: white;
+		background-color: $transwhite;
+		overflow 		: auto;
+		padding-top 	: 3em;
+		transition 		: transform 0.4s ease;
+		transform 		: translateX(-275px);
+		z-index 		: 9999;
+	}
 }
 
 
@@ -183,7 +222,7 @@
 		background		: $color__bg-menu-button-mobile;
 	}
 
-	@media only screen and (min-width: $bp__menu-button+1) {
+	@media only screen and (min-width: $bp__menu-full) {
 		display 	: none;
 		background 	: $color__bg-menu-button;
 		color 		: $color__text-menu-button;
@@ -218,6 +257,6 @@
 		height 		: 0.75em;
 		margin-left : 0.25em;
 		width 		: 0.75em;
-		fill 		: $purple;
+		fill 		: $teal;
 	}
 }

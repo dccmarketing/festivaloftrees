@@ -1,27 +1,76 @@
 .widget-area {
 	width 		: 100%;
-	float 		: left;
 	overflow 	: auto;
-	padding 	: 1em;
 
 	@media only screen and (min-width: $bp__tablet) {
-		width: 27.5%;
-		float: right;
+		width 			: 27.5%;
+		display 		: inline-block;
+		vertical-align 	: top;
+	}
 
-		&.sidebar-content {
-			float 	: left;
-			margin 	: 0 0 0 2.5%;
+	&.sidebar-content {
+		@extend %contentrees;
+
+		@media only screen and (min-width: $bp__tablet) {
+			margin : 0 0 0 2.5%;
 		}
 	}
+
+
 }
 
 .widget {
-	margin: 0 0 1.5em;
+	margin 			: 0 0 10px 0;
+	padding 		: 1em;
+	color 			: $light;
+
+	@media only screen and (min-width: $bp__tablet) {
+		border-radius 	: 20px;
+		margin-right 	: 1em;
+	}
+
+	a {
+		color: $light;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 
 	/* Make sure select elements fit in widgets */
 	select {
 		max-width: 100%;
 	}
+
+	ul {
+		@extend %listreset;
+	}
+
+	li {
+		margin-bottom: 1em;
+		line-height: 1;
+	}
+
+	&:nth-child(4n+1) {
+		background-color: $teal;
+	}
+
+	&:nth-child(4n+2) {
+		background-color: $newyellow;
+	}
+
+	&:nth-child(4n+3) {
+		background-color: $green;
+	}
+
+	&:nth-child(4n+4) {
+		background-color: $newpink;
+	}
+}
+
+.widget-title {
+	font-family 	: $font__bebas;
 }
 
 /* Search widget */

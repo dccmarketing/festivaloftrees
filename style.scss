@@ -48,7 +48,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "sass/mixins/mixins-master";
 @import "sass/mixins/mixins-slushman";
 @import "sass/mixins/mixins-theme";
-@import "sass/hover/hover";
 
 /*--------------------------------------------------------------
 1.0 Reset
@@ -109,3 +108,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 12.0 Media
 --------------------------------------------------------------*/
 @import "sass/media/media";
+
+/*--------------------------------------------------------------
+13.0 Plugins
+--------------------------------------------------------------*/
+@import "sass/modules/tribe-events";
+@import "sass/modules/attractions";
+
+
+

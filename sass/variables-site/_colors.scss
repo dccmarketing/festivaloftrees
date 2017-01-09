@@ -1,13 +1,22 @@
-$light		: #fff;
-$transwhite : rgba(255, 255, 255, 0.75);
-$med		: #ccc;
-$dark		: #020202;
+$light			: #fff;
+$transwhite 	: rgba( $light, 0.75 );
+$med			: #ccc;
+$dark			: #020202;
 
-$purple 	: #633375;
-$transpurple: rgba(99, 51, 117, 0.5);
-$yellow 	: #f9cf3e;
-$hotpink 	: #ba1e4f;
-$orange 	: #e87f3a;
+$purple 		: #633375;
+$transpurple 	: rgba( $purple, 0.5 );
+$yellow 		: #f9cf3e;
+$hotpink 		: #ba1e4f;
+$orange 		: #e87f3a;
+
+$teal 			: #3c8f8f;
+$transteal 		: rgba( $teal, 0.5 );
+$transteal2 	: rgba( $teal, 0.85 );
+$green 			: #628e42;
+$newpink 		: #e7286d;
+$lightgreen 	: #75af4b;
+$newyellow 		: #e7b731;
+$red 			: #c62b3a;
 
 // Backgrounds
 $color__background-body		: $light;
@@ -24,10 +33,10 @@ $color__bg-button-focus 	: darken( $color__background-button, 10% );
 $color__text-screen			: #21759b;
 $color__text-input			: $dark;
 $color__text-input-focus	: $dark;
-$color__link				: royalblue;
-$color__link-visited		: purple;
-$color__link-hover			: midnightblue;
-$color__text-main			: #404040;
+$color__link				: $newpink;
+$color__link-visited		: $newpink;
+$color__link-hover			: $teal;
+$color__text-main			: $teal;
 $color__text-social 		: $light;
 $color__text-ins 			: $dark;
 $color__text-button 		: rgba(0, 0, 0, .8);
@@ -53,20 +62,20 @@ $color__shadow-button-inner-2-focus : rgba(0, 0, 0, 0.15);
 
 // Menu colors
 $color__bg-menu-button			: $med;
-$color__bg-menu-button-mobile 	: $hotpink;
+$color__bg-menu-button-mobile 	: $newpink;
 $color__bg-menu-button-pseudo 	: $color__bg-menu-button-mobile;
 $color__bg-menu-item			: $med;
-$color__bg-menu-item-mobile		: $transpurple;
+$color__bg-menu-item-mobile		: $transteal2;
 $color__bg-menu-current			: darken( $color__bg-menu-item, 25% );
 $color__bg-menu-current-hover	: darken( $color__bg-menu-item, 25% );
 
-$color__text-menu				: $purple;
-$color__text-menu-hover			: $hotpink;
-$color__text-menu-mobile		: $purple;
-$color__text-menu-mobile-hover 	: $hotpink;
+$color__text-menu				: $teal;
+$color__text-menu-hover			: $newpink;
+$color__text-menu-mobile		: $teal;
+$color__text-menu-mobile-hover 	: $newpink;
 $color__text-menu-button		: $light;
 $color__text-menu-button-mobile : $light;
 $color__text-menu-button-pseudo : $color__text-menu-button-mobile;
-$color__text-menu-current		: $light;
-$color__text-menu-current-hover	: $hotpink;
+$color__text-menu-current		: $green;
+$color__text-menu-current-hover	: $newpink;
 $color__text-submenu			: $light;

@@ -1,0 +1,44 @@
+@mixin tabs( $color1, $color2 ) {
+	background-color: $color1;
+
+	.wrap {
+
+		&:before,
+		&:after {
+			background-color: $color2;
+		}
+	}
+}
+
+%footertrees {
+	@media only screen and (min-width: $bp__tablet) {
+		padding: 1em $size__tree-pad-right-tab 1em $size__tree-pad-tablet;
+	}
+
+	@media only screen and (min-width: $bp__menu-full) {
+		padding-left 	: $size__tree-pad-full;
+		padding-right 	: $size__tree-pad-rightfull;
+	}
+
+}
+
+%headlines {
+	font-size 		: 3em;
+	font-family 	: $font__bebas;
+	color 			: $light;
+	line-height 	: 0.7;
+
+	@media only screen and (min-width: $bp__tablet) {
+		font-size 		: 4.5em;
+	}
+}
+
+%contentrees {
+	@media only screen and (min-width: $bp__tablet) {
+		padding-bottom: 100px;
+	}
+
+	@media only screen and (min-width: $bp__menu-full) {
+		padding-bottom: 250px;
+	}
+}

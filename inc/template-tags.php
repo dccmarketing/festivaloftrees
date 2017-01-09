@@ -115,6 +115,37 @@ endif;
 
 
 
+if ( ! function_exists( 'festival_of_trees_home_posted_on' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ *
+ * @uses 	get_the_time()
+ * @uses 	get_the_modified_time()
+ * @uses 	esc_attr()
+ * @uses 	get_the_date()
+ * @uses 	esc_html()
+ * @uses 	get_the_modified_date()
+ * @uses 	esc_url()
+ * @uses 	get_permalink()
+ * @uses 	get_author_posts_url()
+ * @uses 	get_the_author_meta()
+ * @uses 	get_the_author()
+ */
+	function festival_of_trees_home_posted_on() {
+
+		$time_string = sprintf( '<time class="entry-date published updated" datetime="%1$s">%2$s</time>',
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ) );
+
+		$posted_on = sprintf( _x( '%s', 'post date', 'festival-of-trees' ), $time_string );
+
+		echo '<span class="posted-on">' . $posted_on . '</span>';
+
+	} // festival_of_trees_home_posted_on()
+endif;
+
+
+
 if ( ! function_exists( 'festival_of_trees_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.

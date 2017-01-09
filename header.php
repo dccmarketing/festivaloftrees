@@ -32,7 +32,6 @@ wp_head();
 			get_template_part( 'menus/menu', 'header' );
 
 		?></div><!-- .header_wrap -->
-
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( 'Menu', 'festival-of-trees' ); ?></button><?php
 

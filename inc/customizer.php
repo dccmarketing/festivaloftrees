@@ -25,149 +25,451 @@ class festival_of_trees_Customize {
 	*/
 	public static function register( $wp_customize ) {
 
+		// Theme Options Panel
+		$wp_customize->add_panel( 'fot_options',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'description' 		=> __( 'Options for The Festival of Trees theme', 'festival-of-trees' ),
+				'priority' 			=> 10,
+				'theme_supports' 	=> '',
+				'title' 			=> __( 'Theme Options', 'festival-of-trees' ),
+			)
+		);
+
+		// Default Attraction Image Section
+		$wp_customize->add_section( 'fot_attraction',
+			array(
+				'capability' 	=> 'edit_theme_options',
+				'description' 	=> __( 'Default Attraction Image', 'festival-of-trees' ),
+				'panel' 		=> 'fot_options',
+				'priority' 		=> 10,
+				'title' 		=> __( 'Default Attraction Image', 'festival-of-trees' ),
+			)
+		);
+
+		// Image Upload Field
+		$wp_customize->add_setting(
+			'default_attraction_image',
+			array(
+				'default' 	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'default_attraction_image',
+				array(
+					'capability' 	=> 'edit_theme_options',
+					'label' 		=> __( 'Default Attraction Image', 'festival-of-trees' ),
+					'section' 		=> 'fot_attraction',
+					'settings' 		=> 'default_attraction_image'
+				)
+			)
+		);
+
+		// Home Page Section
+		$wp_customize->add_section( 'fot_home',
+			array(
+				'capability' 	=> 'edit_theme_options',
+				'description' 	=> __( 'Home Page', 'festival-of-trees' ),
+				'panel' 		=> 'fot_options',
+				'priority' 		=> 10,
+				'title' 		=> __( 'Home Page', 'festival-of-trees' ),
+			)
+		);
+
+		// Homepage Header Background Field
+		$wp_customize->add_setting(
+			'header_background',
+			array(
+				'default' 	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'header_background',
+				array(
+					'capability' 	=> 'edit_theme_options',
+					'description' 	=> 'Image size: 1660px by 660px',
+					'label' 		=> __( 'Header Background Image', 'festival-of-trees' ),
+					'section' 		=> 'fot_home',
+					'settings' 		=> 'header_background'
+				)
+			)
+		);
+
+		// Footer Artwork Field
+		$wp_customize->add_setting(
+			'footer_artwork',
+			array(
+				'default' 	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'footer_artwork',
+				array(
+					'capability' 	=> 'edit_theme_options',
+					'description' 	=> 'Image size: 406px by 445px',
+					'label' 		=> __( 'Footer Artwork', 'festival-of-trees' ),
+					'section' 		=> 'fot_home',
+					'settings' 		=> 'footer_artwork'
+				)
+			)
+		);
+
+		// Promo Text Color Field
+		$wp_customize->add_setting(
+			'promo_text_color',
+			array(
+				'default'  	=> '#ffffff',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'promo_text_color',
+				array(
+					'description' 	=> '2015 colors:<br>teal: #3c8f8f<br>green: #628e42<br>pink: #e7286d<br>lightgreen: #75af4b<br>yellow: #e7b731<br>red: #c62b3a',
+					'label' => esc_html__( 'Promo Text Color', 'festival-of-trees' ),
+					'section' => 'fot_home',
+					'settings' => 'promo_text_color'
+				)
+			)
+		);
+
+
+
 /*
+		// New Panel
+		$wp_customize->add_panel( 'theme_options',
+			array(
+				'capability'  		=> 'edit_theme_options',
+				'description'  		=> esc_html__( 'Options for Replace With Theme Name', 'festival-of-trees' ),
+				'priority'  		=> 10,
+				'theme_supports'  	=> '',
+				'title'  			=> esc_html__( 'Theme Options', 'festival-of-trees' ),
+			)
+		);
+
+
+
 		// New Section
-		$sectargs['title'] 			= __( 'New Section', 'festival-of-trees' );
-		$sectargs['capability'] 	= 'edit_theme_options';
-		$sectargs['description'] 	= __( 'New Customizer Section', 'festival-of-trees' );
-		$wp_customize->add_section( 'new_section', $sectargs );
+		$wp_customize->add_section( 'new_section',
+			array(
+				'capability' 	=> 'edit_theme_options',
+				'description' 	=> esc_html__( 'New Customizer Section', 'festival-of-trees' ),
+				'panel' 		=> 'theme_options',
+				'priority' 		=> 10,
+				'title' 		=> esc_html__( 'New Section', 'festival-of-trees' )
+			)
+		);
 
 
 
-		// Add Settings
-		$wp_customize->add_setting( 'color_field', array( 'normal', 'postMessage' )  );
-		$wp_customize->add_setting( 'image_field', array( 'normal', 'postMessage' )  );
-
-
-
-		// Add Controls
+		// Add Fields & Controls
 
 		// Text Field
-		$settingargs['default'] 			= 'normal';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'text_field', $settingargs );
+		$wp_customize->add_setting(
+			'text_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'text_field',
+			array(
+				'label'  	=> esc_html__( 'Text Field', 'festival-of-trees' ),
+				'section'  	=> 'new_section',
+				'settings' 	=> 'text_field',
+				'type' 		=> 'text'
+			)
+		);
 
-		$controlargs['label'] 				= __( 'Text Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'text_field';
-		$wp_customize->add_control( 'text_field', $controlargs );
+
+
+		// URL Field
+		$wp_customize->add_setting(
+			'url_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'url_field',
+			array(
+				'label' => esc_html__( 'URL Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'url_field',
+				'type' => 'url'
+			)
+		);
+
+
+
+		// Email Field
+		$wp_customize->add_setting(
+			'email_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'email_field',
+			array(
+				'label' => esc_html__( 'Email Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'email_field',
+				'type' => 'email'
+			)
+		);
+
+
+
+
+		// Password Field
+		$wp_customize->add_setting(
+			'password_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'password_field',
+			array(
+				'label' => esc_html__( 'Password Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'password_field',
+				'type' => 'password'
+			)
+		);
+
+
+
+		// Date Field
+		$wp_customize->add_setting(
+			'date_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'date_field',
+			array(
+				'label' => esc_html__( 'Date Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'date_field',
+				'type' => 'date'
+			)
+		);
 
 
 
 		// Checkbox Field
-		$settingargs['default'] 			= 'true';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'checkbox_field', $settingargs );
-
-		$controlargs['label'] 				= __( 'Checkbox Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'checkbox_field';
-		$wp_customize->add_control( 'checkbox_field', $controlargs );
+		$wp_customize->add_setting(
+			'checkbox_field',
+			array(
+				'default'  	=> 'true',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'checkbox_field',
+			array(
+				'label' => esc_html__( 'Checkbox Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'checkbox_field',
+				'type' => 'checkbox'
+			)
+		);
 
 
 
 		// Radio Field
-		$settingargs['default'] 			= 'choice1';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'radio_field', $settingargs );
-
-		$controlargs['choices']['choice1'] 	= 'Choice 1';
-		$controlargs['choices']['choice2'] 	= 'Choice 2';
-		$controlargs['choices']['choice3'] 	= 'Choice 3';
-		$controlargs['label'] 				= __( 'Radio Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'radio_field';
-		$wp_customize->add_control( 'radio_field', $controlargs );
+		$wp_customize->add_setting(
+			'radio_field',
+			array(
+				'default'  	=> 'choice1',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'radio_field',
+			array(
+				'choices' => array(
+					'choice1' => esc_html__( 'Choice 1', 'festival-of-trees' ),
+					'choice2' => esc_html__( 'Choice 2', 'festival-of-trees' ),
+					'choice3' => esc_html__( 'Choice 3', 'festival-of-trees' )
+				),
+				'label' => esc_html__( 'Radio Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'radio_field',
+				'type' => 'radio'
+			)
+		);
 
 
 
 		// Select Field
-		$settingargs['default'] 			= 'choice1';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'select_field', $settingargs );
-
-		$controlargs['choices']['choice1'] 	= 'Choice 1';
-		$controlargs['choices']['choice2'] 	= 'Choice 2';
-		$controlargs['choices']['choice3'] 	= 'Choice 3';
-		$controlargs['label'] 				= __( 'Select Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'select_field';
-		$controlargs['type'] 				= 'dropdown-pages';
-		$wp_customize->add_control( 'select_field', $controlargs );
+		$wp_customize->add_setting(
+			'select_field',
+			array(
+				'default'  	=> 'choice1',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'select_field',
+			array(
+				'choices' => array(
+					'choice1' => esc_html__( 'Choice 1', 'festival-of-trees' ),
+					'choice2' => esc_html__( 'Choice 2', 'festival-of-trees' ),
+					'choice3' => esc_html__( 'Choice 3', 'festival-of-trees' )
+				),
+				'label' => esc_html__( 'Select Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'select_field',
+				'type' => 'select'
+			)
+		);
 
 
 
 		// Textarea Field
-		function textarea_customizer( $wp_customize ) {
+		$wp_customize->add_setting(
+			'textarea_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'textarea_field',
+			array(
+				'label' => esc_html__( 'Textarea Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'textarea_field',
+				'type' => 'textarea'
+			)
+		);
 
-			class Example_Customize_Textarea_Control extends WP_Customize_Control {
 
-				public $type = 'textarea';
 
-				public function render_content() {
-
-					?><label>
-						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-						<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-					</label><?php
-
-				} // render_content()
-
-			} // class
-
-		} // textarea_customizer()
-
-		$wp_customize->add_setting( 'textarea' );
-
-		$controlargs['label'] 				= __( 'Textarea', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'textarea';
-		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'textarea', $controlargs ) );
+		// Range Field
+		$wp_customize->add_setting(
+			'range_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'range_field',
+			array(
+				'input_attrs' => array(
+					'class' => 'range-field',
+					'max' => 100,
+					'min' => 0,
+					'step' => 1,
+					'style' => 'color: #020202'
+				),
+				'label' => esc_html__( 'Range Field', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'range_field',
+				'type' => 'range'
+			)
+		);
 
 
 
 		// Page Select Field
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'select_page_field', $settingargs );
-
-		$controlargs['label'] 				= __( 'Select Page', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'select_page_field';
-		$wp_customize->add_control( 'select_page_field', $controlargs );
+		$wp_customize->add_setting(
+			'select_page_field',
+			array(
+				'default'  	=> '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			'select_page_field',
+			array(
+				'label' => esc_html__( 'Select Page', 'festival-of-trees' ),
+				'section' => 'new_section',
+				'settings' => 'select_page_field',
+				'type' => 'dropdown-pages'
+			)
+		);
 
 
 
 		// Color Chooser Field
-		$settingargs['default'] 			= '#ffffff';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'color_field', $settingargs );
-
-		$controlargs['label'] 				= __( 'Color Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'color_field';
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_field', $controlargs ) );
+		$wp_customize->add_setting(
+			'color_field',
+			array(
+				'default'  	=> '#ffffff',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize,
+				'color_field',
+				array(
+					'label' => esc_html__( 'Color Field', 'festival-of-trees' ),
+					'section' => 'new_section',
+					'settings' => 'color_field'
+				),
+			)
+		);
 
 
 
 		// File Upload Field
-		$wp_customize->add_setting( 'file-upload' );
-
-		$controlargs['label'] 				= __( 'File Upload', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'file-upload';
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'file-upload', $controlargs ) );
+		$wp_customize->add_setting( 'file_upload' );
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'file_upload',
+				array(
+					'label' => esc_html__( 'File Upload', 'festival-of-trees' ),
+					'section' => 'new_section',
+					'settings' => 'file_upload'
+				),
+			)
+		);
 
 
 
 		// Image Upload Field
-		$settingargs['default'] 			= '';
-		$settingargs['transport'] 			= 'postMessage';
-		$wp_customize->add_setting( 'image_field', $settingargs );
-
-		$controlargs['label'] 				= __( 'Image Field', 'festival-of-trees' );
-		$controlargs['section'] 			= 'new_section';
-		$controlargs['settings'] 			= 'image_field';
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'image_field', $controlargs ) );
+		$wp_customize->add_setting(
+			'image_upload',
+			array(
+				'default' => '',
+				'transport' => 'postMessage'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'image_upload',
+				array(
+					'label' => esc_html__( 'Image Field', 'festival-of-trees' ),
+					'section' => 'new_section',
+					'settings' => 'image_upload'
+				)
+			)
+		);
 */
 
 
@@ -175,9 +477,6 @@ class festival_of_trees_Customize {
 		$wp_customize->get_setting( 'blogname' )->transport 		= 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport 	= 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-		$wp_customize->get_setting( 'text_field' )->transport		= 'postMessage';
-		$wp_customize->get_setting( 'color_field' )->transport 		= 'postMessage';
-		$wp_customize->get_setting( 'image_field' )->transport 		= 'postMessage';
 
 	} // register()
 
@@ -195,9 +494,8 @@ class festival_of_trees_Customize {
 		?><!--Customizer CSS-->
 		<style type="text/css"><?php
 
-			festival_of_trees_Customize::generate_css( '#site-title a', 'color', 'header_textcolor', '#' );
-			festival_of_trees_Customize::generate_css( 'body', 'background-color', 'background_color', '#' );
-			festival_of_trees_Customize::generate_css( 'a', 'color', 'link_textcolor' );
+			festival_of_trees_Customize::generate_css( '.home .site', 'background-image', 'header_background', 'url(', ')' );
+			festival_of_trees_Customize::generate_css( '.promo-line1, .promo-line2, .promo-line3', 'color', 'promo_text_color' );
 
 		?></style><!--/Customizer CSS--><?php
 

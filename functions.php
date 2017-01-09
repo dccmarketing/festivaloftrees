@@ -52,7 +52,8 @@ function festival_of_trees_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'festival-of-trees' ),
 		'social' => __( 'Social Links', 'festival-of-trees' ),
-		'header' => __( 'Header Menu', 'festival-of-trees' )
+		'header' => __( 'Header Menu', 'festival-of-trees' ),
+		'footer' => __( 'Footer Menu', 'festival-of-trees' )
 	) );
 
 	/*
@@ -109,6 +110,8 @@ function festival_of_trees_scripts() {
 	wp_enqueue_style( 'festivaloftrees-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'festivaloftrees-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), '20120206', true );
+	wp_enqueue_script( 'festivaloftrees-classie', get_template_directory_uri() . '/js/classie.min.js', array(), '20150316', true );
+	wp_enqueue_script( 'festivaloftrees-nav-header', get_template_directory_uri() . '/js/nav-header.min.js', array( 'festivaloftrees-classie' ), '20150316', true );
 
 	wp_enqueue_script( 'festivaloftrees-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 
@@ -148,5 +151,73 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Slushman Themekit
  */
 require get_template_directory() . '/inc/themekit.php';
+
+/**
+ * Load Attractions CPT
+ */
+//require get_template_directory() . '/inc/attractions.php';
+
+/**
+ * Returns a post object of the requested post type
+ *
+ * @param 	string 		$post 			The name of the post type
+ * @param   array 		$params 		Optional parameters
+ * @return 	object 		A post object
+ */
+function festival_of_trees_get_posts( $post, $params = array() ) {
+
+	$return = '';
+	$return = wp_cache_get( 'festival_of_trees_' . $post . '_posts', 'festival_of_trees_posts' );
+
+	if ( false === $return ) {
+
+		$args['post_type'] 				= $post;
+		$args['post_status'] 			= 'publish';
+		$args['order'] 					= 'DESC';
+		$args['orderby'] 				= 'date';
+		$args['posts_per_page'] 		= 50;
+		$args['no_found_rows']			= true;
+		$args['update_post_meta_cache'] = false;
+		$args['update_post_term_cache'] = false;
+
+		if ( ! empty( $params ) ) {
+
+			foreach ( $params as $key => $value ) {
+
+				$args[$key] = $value;
+
+			}
+
+		}
+
+		$query = new WP_Query( $args );
+
+		if ( ! is_wp_error( $query ) && $query->have_posts() ) {
+
+			wp_cache_set( 'festival_of_trees_' . $post . '_posts', $query, 'festival_of_trees_posts', 5 * MINUTE_IN_SECONDS );
+
+			$return = $query;
+
+		}
+
+	}
+
+	return $return;
+
+} // festival_of_trees_get_posts()
+
+function festival_of_trees_get_events() {
+
+	$args['posts_per_page'] = 200;
+	$args['eventDisplay'] 	= 'list';
+	$args['meta_key'] 		= '_EventStartDate';
+	$args['meta_value'] 	= array( current_time( 'Y-m-d' ) . ' 00:00:00', current_time( 'Y-m-d' ) . ' 23:59:59' );
+	$args['meta_compare'] 	= 'BETWEEN';
+
+	return tribe_get_events( $args );
+
+}
+
+
 
 

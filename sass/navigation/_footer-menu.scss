@@ -1,0 +1,36 @@
+.nav-footer {
+	display: block;
+
+	@media only screen and (min-width: $bp__tablet) {
+		display: inline-block;
+		padding: 0 0.5em;
+	}
+
+	.menu-items {
+		@extend %listreset;
+	}
+
+	.menu-item {
+		display 		: inline-block;
+		vertical-align 	: top;
+		text-align 		: center;
+		border-right 	: 1px solid $teal;
+		padding 		: 0 0.5em;
+
+		&:hover {
+
+			a {
+				color: $newyellow;
+			}
+		}
+
+		&:first-child {
+			border-left: 1px solid $teal;
+		}
+	}
+
+	a {
+		transition 		: all 0.3s ease;
+		line-height 	: 1;
+	}
+}

@@ -34,32 +34,63 @@
 	background-position : top center;
 	background-repeat 	: no-repeat;
 
-	@media only screen and (min-width: $bp__tablet) {
-		background-image 	: url(images/header_bg.png);
+	.home & {
+
+		@media only screen and (max-width: $bp__tablet - 1) {
+			background-image: none !important;
+		}
 	}
 }
 
 .site-content {
 	width 		: 100%;
-	margin 		: 0 auto $size__default-bot-marg;
 	overflow 	: auto;
-	max-width 	: $size__max-width;
+}
+
+.content-wrap {
+	padding: 0 !important;
+
+	.home & {
+		max-width 	: 100%;
+		margin 		: 0;
+	}
+
 }
 
 .content-area {
 	width 		: 100%;
-	float 		: left;
 	overflow 	: auto;
 	padding 	: 1em;
 
-	@media only screen and (min-width: $bp__tablet) {
-		width 	: 70%;
-		margin 	: 0 2.5% 0 0;
-		float 	: left;
+	.home & {
+		padding: 0
+	}
 
-		&.sidebar-content {
-			float 	: right;
-			margin 	: 0 0 0 2.5%;
+	&.content-sidebar,
+	.single & {
+
+		@extend %contentrees;
+
+		@media only screen and (min-width: $bp__tablet) {
+			width 			: 70%;
+			margin 			: 0 2.5% 0 0;
+			display 		: inline-block;
+			vertical-align 	: top;
+		}
+
+	}
+
+	&.sidebar-content {
+
+		@media only screen and (min-width: $bp__tablet) {
+			width 			: 70%;
+			margin 			: 0 0 0 2.5%;
+			display			: inline-block;
+			vertical-align	: top;
 		}
 	}
+}
+
+.entry-title {
+	font-family 	: $font__bebas;
 }
